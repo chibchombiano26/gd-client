@@ -4,7 +4,7 @@ import {HorizonService} from "../../../horizon/horizon";
 import {PushService} from "../../../push/push.service";
 
 // const URL = '/api/';
-const URL = 'http://localhost:8081/api/';
+const URL = 'http://geek-developers-server.7c5d756b.svc.dockerapp.io:8081/api/';
 
 @Component({
   selector: '[upload]',  

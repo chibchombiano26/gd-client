@@ -12,7 +12,7 @@ export class HorizonService {
   }
 
   connect() {     
-    this.horizon = Horizon({ host: 'localhost:8081'});    
+    this.horizon = Horizon({ host: 'geek-developers-server.7c5d756b.svc.dockerapp.io:8081'});    
     return new Promise((resolve, reject)=> {
       this.horizon.onReady((status)=> {
         this.status = status;        
