@@ -1,5 +1,5 @@
-docker build -t geek-developer-client-docker .
-docker run -i -t geek-developer-client-docker
+docker build -t geek-developer-client-dist-docker .
+docker run -i -t geek-developer-client-dist-docker
 
 
 alias kill3000="fuser -k -n tcp 8080"
