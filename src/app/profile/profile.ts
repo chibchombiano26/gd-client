@@ -12,8 +12,9 @@ declare var window;
 })
 export class ProfileComponent implements OnInit {
 
-    user:any;
+    user:any = { sex: 'Male'};
     photos: any = [];
+    sexList: any =['Male', 'Female', 'Other'];
 
     constructor(private horizonService: HorizonService, private storageService:StorageService) {        
         this.user =this.storageService.getObject("user");
@@ -21,7 +22,10 @@ export class ProfileComponent implements OnInit {
      }
 
      update(){
-         this.horizonService.horizon("Register").store(this.user);
+         this.horizonService.horizon("Register").store(this.user).subscribe((e)=>{             
+             this.storageService.setObject("user", this.user);
+             this.user =this.storageService.getObject("user");
+         })
      }
 
      getPhotos(id){         

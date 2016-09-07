@@ -1,31 +1,30 @@
-
 <style>
-    .image-feed{
+    .image-feed {
         width: 100px;
         height: 100px;
     }
 </style>
 
 <div class="container">
- 
- <div class="widget">     
-     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div upload=""  [destination]="'Images'" [showpush]="'true'"></div>   
-     </div>
- </div>
 
-<div class="widget">     
-     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="widget">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div upload="" [destination]="'Images'" [showpush]="'true'"></div>
+        </div>
+    </div>
 
-         
-         <ul class="list-group">
-             <li class="list-group-item" *ngFor="let item of images">                 
-                 <img class="image-feed" src="{{item.url}}">                 
-             </li>             
-         </ul>
-         
+    <div class="widget">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-     </div>
- </div>
+            <div class="row">
+                <div class="col-md-4" *ngFor="let item of images">
+                    <a href="{{item.url}}" class="thumbnail">                        
+                        <img src="{{item.url}}" alt="Pulpit Rock" style="width:150px;height:150px">
+                    </a>
+                </div>                
+            </div>
+
+        </div>
+    </div>
 
 </div>

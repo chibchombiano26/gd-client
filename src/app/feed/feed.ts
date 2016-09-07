@@ -14,12 +14,13 @@ export class FeedComponent implements OnInit {
     images : any = [];
 
     constructor(private horizonService: HorizonService) {
-        this.onNewImage();        
+        this.onNewImage();
+        window.Pace.stop();  
     }
 
     onNewImage(){      
+      window.Pace.stop();
       this.horizonService.horizon("Images").watch({rawChanges: true}).subscribe(newFile => {
-
                     
           if(newFile && newFile.new_val && newFile.new_val.url){
             this.images.push(newFile.new_val);            

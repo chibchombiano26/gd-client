@@ -2,6 +2,7 @@ import {Component, Input} from '@angular/core';
 import {UploadService} from './upload.service';
 import {HorizonService} from "../../../horizon/horizon";
 import {PushService} from "../../../push/push.service";
+declare var window;
 
 // const URL = '/api/';
 const URL = 'http://geek-developers-server.7c5d756b.svc.dockerapp.io:8081/api/';
@@ -28,9 +29,13 @@ export class upload {
 
     onChange(event) {  
     
-      var files = event.srcElement.files;    
+      window.Pace.restart();
+      var target = event.target || event.srcElement;
+      var files = target.files;    
       this.service.makeFileRequest(URL, [], files).then((e) => {
         
+        window.Pace.stop();
+
         if(this.user){
           this.horizonService.horizon(this.destination).store({url: e.response, userId: this.user.id});
         }

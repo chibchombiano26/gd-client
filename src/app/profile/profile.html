@@ -24,6 +24,14 @@
             <input name="dateOfBirth" type="date" [(ngModel)]="user.birth" class="form-control" placeholder="Birth Date">
         </div>   
         
+        
+        <div class="form-group">
+            <label for="sex">Sex: {{user.sex}}</label>
+            <select name="sex" [(ngModel)]="user.sex" id="input1/(\w+)/\u\1/g" class="form-control">
+                <option *ngFor="let item of sexList" value="{{item}}">{{item}}</option>
+            </select>
+        </div>        
+        
     
         <button type="submit" (click)="update()" class="btn btn-primary" [disabled]="!registerForm.form.valid">Submit</button>
     </form>    
@@ -48,11 +56,15 @@
      <p>My images</p>
 
      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-         <ul class="list-group" *ngFor="let item of photos">
-             <li class="list-group-item">
-                 <img class="image-feed" src="{{item.url}}">                 
-             </li>             
-         </ul>
+
+         <div class="row">
+                <div class="col-md-4" *ngFor="let item of photos">
+                    <a href="{{item.url}}" class="thumbnail">                        
+                        <img src="{{item.url}}" alt="Pulpit Rock" style="width:150px;height:150px">
+                    </a>
+                </div>                
+            </div>
+         
      </div>
  </div>
 
